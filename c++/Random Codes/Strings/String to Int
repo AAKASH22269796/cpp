@@ -1,1 +1,44 @@
+Problem:    Convert str to int while removing all initial zeroes and keeping the initial sign of str and breaking string if any other character comes rather than numbers .......
 
+CODE:
+
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	string s;
+	cin>>s;
+	int a=s.size();
+	int count=0;
+	if(s[0]==45){
+	    cout<<"-";
+	    for(int i=1;i<a;i++){
+	        if(s[i]>57||s[i]<48){
+	            break;
+	        }
+	        else if(s[i]==48&&count==0){
+	            continue;
+	        }
+	        else{
+	            cout<<s[i];
+	            count++;
+	        }
+	    }
+	}
+	else{
+	    for(int i=0;i<a;i++){
+	        if(s[i]>57||s[i]<48){
+	            break;
+	        }
+	        else if(s[i]==48&&count==0){
+	            continue;
+	        }
+	        else{
+	            cout<<s[i];
+	            count++;
+	        }
+	    }
+	    
+	}
+}
