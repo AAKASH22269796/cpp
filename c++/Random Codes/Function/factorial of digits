@@ -1,0 +1,36 @@
+PROBLEM:
+To find the smallest 3 digit no whose sum of factorial of digits is equal to the number.................................................
+
+CODE: 
+
+#include <bits/stdc++.h>
+using namespace std;
+int fact(int x){
+    int prod=1;
+    if(x==0||x==1){
+        return prod;
+    }
+    else{
+    while(x>1){
+        prod=prod*x;
+        x--;
+    }
+    return prod;
+    }
+}
+int main() {
+	for(int i=100;i<1000;i++){
+	    int n=i;
+	    int digit;
+	    int sum=0;
+	    while(n>0){
+	        digit=n%10;
+	        sum=sum+fact(digit);
+	        n=n/10;
+	    }
+	    if(sum==i){
+	        cout<<i;
+	        break;  
+	    }    
+	}
+}
