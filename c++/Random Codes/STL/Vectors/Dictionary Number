@@ -1,0 +1,32 @@
+Problem: Input n,k is given where n is number from 1-9 and k is any number less than the total permutations made from 123...n(n!).
+         We have to give output as according to combination in sorted order which number is in the k(th) place............................................................
+         LINK:  https://leetcode.com/problems/permutation-sequence/description/
+CODE:
+
+#include <bits/stdc++.h>
+using namespace std;
+int fact(int n){
+    if(n==0) return 1;
+   return fact(n-1)*n;
+}
+int main() {
+	int n,k;
+	cin>>n>>k;
+	int c=n;
+	vector<int>v,s,d;
+	for(int t=1;t<=n;t++){
+	    if(k<=((t)*fact(n-1))){
+	        v.push_back(t);
+	        k=k-((t-1)*fact(n-1));
+	        t=0;
+	        n--;
+	    }
+	}
+	for(int i=0;i<c;i++){
+	    s.push_back(i+1);}
+	for(int i=0;i<c;i++){
+	    d.push_back(s[v[i]-1]);
+	    s.erase(s.begin() + (v[i]-1));}
+	for(int i=0;i<c;i++){
+	    cout<<d[i];}
+}
