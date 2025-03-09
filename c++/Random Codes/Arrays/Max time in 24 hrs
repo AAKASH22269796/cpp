@@ -1,0 +1,102 @@
+Problem: Given an array arr of 4 digits, find the latest(maximum time) 24-hour time that can be made using each digit exactly once.
+
+CODE:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	 int arr[4];
+	 for(int i=0;i<4;i++){
+	     cin>>arr[i];
+	 }
+	 vector<int>v;
+	 for(int i=0;i<4;i++){
+	     v.push_back(i);
+	 }
+	 vector<int>s={0,1,2};
+	 int a=0;
+	 for(int i=0;i<3;i++){
+	    for(int j=0;j<3;j++){
+	        if(arr[j]>arr[j+1]){
+	            swap(arr[j],arr[j+1]);
+	            a=1;
+	        }
+	    }
+	    if(a==0){
+	        break;
+	    }
+	 }
+	 int b=4;
+	 int c=4;
+	 int d=4;
+	 int e,h;
+	 int f=4;
+	 int g=4;
+	 for(int i=3;i>=0;i--){
+	     if(arr[i]==2){
+	         b=i;
+	         break;
+	     }
+	 }
+	 if(b!=4){
+	    for(int i=3;i>=0;i--){
+	        if(i==b) continue;
+	        else if(arr[i]<=3){
+                c=i;
+                break;
+	        }
+	    }
+	 }
+	 if(c!=4&&b!=4){
+	     for(int i=3;i>=0;i--){
+	         if(i==b||i==c) continue;
+	         else if(arr[i]<=5){
+	             d=i;
+	             break;
+	         }
+	         
+	     }
+	 }
+	 if(d!=4){
+	 v.erase(remove(v.begin(),v.end(),b),v.end());
+	 v.erase(remove(v.begin(),v.end(),c),v.end());
+	 v.erase(remove(v.begin(),v.end(),d),v.end());
+	 e=v[0];
+	 cout<<arr[b]<<arr[c]<<":"<<arr[d]<<arr[e];
+	 }
+	 else if(d==4){
+	     b=4;
+	 }
+	 if(b==4){
+	     for(int i=3;i>=0;i--){
+	     if(arr[i]<2){
+	         f=i;
+	         break;
+	        }
+	    }
+	 }
+	 if(f!=4){
+	      for(int i=2;i>=0;i--){
+	         if(i==f) continue;
+	         else if(arr[i]<=5){
+	             g=i;
+	             break;
+	         }
+	     }  
+	 }
+	 if(g!=4){
+	    s.erase(remove(s.begin(),s.end(),f),s.end());
+	    s.erase(remove(s.begin(),s.end(),g),s.end());
+	    h=v[0];
+	    if(f!=3){
+	    cout<<arr[f]<<arr[3]<<":"<<arr[g]<<arr[h];
+	    }
+	    else{
+	        cout<<arr[f]<<arr[2]<<":"<<arr[g-1]<<arr[h];
+	    }
+	     
+	 
+	 }
+
+}
