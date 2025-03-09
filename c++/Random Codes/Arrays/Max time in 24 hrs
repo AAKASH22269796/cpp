@@ -10,12 +10,9 @@ int main() {
 	 for(int i=0;i<4;i++){
 	     cin>>arr[i];
 	 }
-	 vector<int>v;
-	 for(int i=0;i<4;i++){
-	     v.push_back(i);
-	 }
+	 vector<int>v={0,1,2,3};
 	 vector<int>s={0,1,2};
-	 int a=0;
+	 int a=0,b=4,c=4,d=4,e,h,f=4,g=4;
 	 for(int i=0;i<3;i++){
 	    for(int j=0;j<3;j++){
 	        if(arr[j]>arr[j+1]){
@@ -27,12 +24,6 @@ int main() {
 	        break;
 	    }
 	 }
-	 int b=4;
-	 int c=4;
-	 int d=4;
-	 int e,h;
-	 int f=4;
-	 int g=4;
 	 for(int i=3;i>=0;i--){
 	     if(arr[i]==2){
 	         b=i;
@@ -54,8 +45,7 @@ int main() {
 	         else if(arr[i]<=5){
 	             d=i;
 	             break;
-	         }
-	         
+	         }  
 	     }
 	 }
 	 if(d!=4){
@@ -98,5 +88,8 @@ int main() {
 	     
 	 
 	 }
-
+	 else if(d==4&&g==4){
+	      cout<<"Give a Valid Input";
+	 }
 }
+
