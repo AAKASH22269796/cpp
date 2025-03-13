@@ -1,0 +1,31 @@
+Problem:  Given an integer n, return the count of all numbers with unique digits, x, where 0 <= x < 10^n...........
+
+CODE:
+
+#include <bits/stdc++.h>
+using namespace std;
+
+int myway(int n){
+    int product=9;
+    int j=9;
+    for(int i=1;i<n;i++){
+        product=product*j;
+        j--;
+    }
+    return product;
+}
+
+int main() {
+	int n;
+	cin>>n;
+	int sum=1;
+	if(n==0){
+	    cout<<sum;
+	}
+	else{
+    	for(int i=n;i>=1;i--){
+    	    sum=sum+myway(i);
+    	}
+    	cout<<sum;
+	}
+}
